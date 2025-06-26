@@ -1,4 +1,8 @@
-# What to do if cluster was not close 
+#CORD-19 dataset distributed analysis w/ DASK
+
+## Useful things to know
+
+### What to do if cluster was not close 
 
 and u get this error: `RuntimeError: Cluster failed to start: Worker failed to start`
 
