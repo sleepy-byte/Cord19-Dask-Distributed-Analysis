@@ -29,3 +29,6 @@ I settled in launching a dedicated VM as NFS (Network File System) and mounting 
 After acknowlegding the only feasible (and compatible with the horizontal scalability logic) way of setting up data locality, I set up and filled NFS server. Today I will experiment a bit with how the cluster actually access the data. 
 
 I filled the nfs server (`10.67.22.227`) with two version of the dataset, v30 and v50. 
+
+Also, forgot to mention that since our VMs are single core I thought that the structure 4VMs : 1 Scheduler and worker + 3 worker, is not that good bc we would have a machine that struggles in doing both tasks.
+
