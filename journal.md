@@ -32,3 +32,8 @@ I filled the nfs server (`10.67.22.227`) with two version of the dataset, v30 an
 
 Also, forgot to mention that since our VMs are single core I thought that the structure 4VMs : 1 Scheduler and worker + 3 worker, is not that good bc we would have a machine that struggles in doing both tasks.
 
+## 1/7
+
+### Luke
+
+Tried to compute the number of occurances of words in each file. The function works. Though, when giving the task to the cluster, the cluster crashes, even if given very few files. Don't know what is the reason for that
