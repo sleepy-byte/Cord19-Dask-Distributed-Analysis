@@ -37,3 +37,7 @@ Also, forgot to mention that since our VMs are single core I thought that the st
 ### Luke
 
 Tried to compute the number of occurances of words in each file. The function works. Though, when giving the task to the cluster, the cluster crashes, even if given very few files. Don't know what is the reason for that
+
+### UPDATE
+
+I have a working counter in Assignment notebook. It can be improved (I guess). But it works
