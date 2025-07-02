@@ -41,3 +41,10 @@ Tried to compute the number of occurances of words in each file. The function wo
 ### UPDATE
 
 I have a working counter in Assignment notebook. It can be improved (I guess). But it works
+
+
+## 2/7
+
+### Luke
+
+Set up correctly the Assignment notebook for the word count task and grid search for best hyperparameters on speed of the task.
