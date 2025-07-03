@@ -48,3 +48,18 @@ I have a working counter in Assignment notebook. It can be improved (I guess). B
 ### Luke
 
 Set up correctly the Assignment notebook for the word count task and grid search for best hyperparameters on speed of the task.
+
+## 3/7
+
+### Gigi
+
+Solved issue of workers that would not work appropriately: I needed to specify the path to the python executable. Now is working. How to adapt:
+`import ClusterManager as cm`
+
+`client=cm.ClusterStarter()`
+
+once you done remember: `client.close()`
+
+You can find `ClusterManager` on `/home/ubuntu/ClusterManager.py`
+
+Added NLP model to `/home/ubuntu/data`.
