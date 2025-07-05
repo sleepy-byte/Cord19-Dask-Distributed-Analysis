@@ -74,6 +74,7 @@ Also I learned that all intermediate variables end in unmanaged memory of the cl
 
 Now i have to map titles to model and viceversa.
 
+Update: I had a brilliant idea and did not used any function but simply merged the filtered dictionary with the dataframe that had title-ID, after having it exploded. Super fast, takes 4 mins to work. I thik the result is too big to fit in scheduler memory, i got repeatedly this error: distributed.client - WARNING - Couldn't gather 1 keys, rescheduling (('repartitiontofewer-91c51f660f6797d36e3b97039521d35b', 0),), but when i took the .head(...) it suddenly worked. 
 
 
 ## 4/7
