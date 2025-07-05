@@ -73,3 +73,40 @@ Yesterday and this morning i worked o task3. The goal is embedding every title w
 Also I learned that all intermediate variables end in unmanaged memory of the cluster so a good practice is to `del` them asap and sometimes run client.run(gc.collect) to free memory.
 
 Now i have to map titles to model and viceversa.
+
+
+
+## 4/7
+
+### Cris 
+
+I create a data frame from the json files. The data frame contains the column "affiliations" that is an object of lists. Each record has a list with the affiliation information for each author of the paper. 
+
+What I made so far: 
+- I make a function to load the .json filese
+- Create a DASK bag 
+- Convert the DASK bag into a Data Frame
+ * To do that from a .json file, you need to specify what json obejct you need as a column. 
+		* I choosed to get the paper_id, the paper title, the affiliation (the acctual field we need for this part of the project) and the first author. Altrough it is uneccesary to have the other fields besides the 'affiliation', I tought it will may be intereting and useful to extrapolate more information if necessary.
+		* Also, the paper may have multiple authors. I choose to get the affiliation field as a list, that contains the information for each author for the paper.  
+
+
+- The Affiliation section is a mess. The following is an example: 
+
+	'	[{'laboratory': '', 'institution': 'National Institute of Pharmaceutical Education and Research (NIPER)', 'location': {'postCode': 'Telangana-500037', 'settlement': 'Balanagar, Hyderabad', 'country': 'India'}}, {'laboratory': '', 'institution': 'National Institute of Pharmaceutical Education and Research (NIPER)', 'location': {'postCode': 'Telangana-500037', 'settlement': 'Balanagar, Hyderabad', 'country': 'India'}}, {'laboratory': '', 'institution': 'National Institute of Pharmaceutical Education and Research (NIPER)', 'location': {'postCode': 'Telangana-500037', 'settlement': 'Balanagar, Hyderabad', 'country': 'India'}}][{'laboratory': '', 'institution': 'National Institute of Pharmaceutical Education and Research (NIPER)', 'location': {'postCode': 'Telangana-500037', 'settlement': 'Balanagar, Hyderabad', 'country': 'India'}}, {'laboratory': '', 'institution': 'National Institute of Pharmaceutical Education and Research (NIPER)', 'location': {'postCode': 'Telangana-500037', 'settlement': 'Balanagar, Hyderabad', 'country': 'India'}}, {'laboratory': '', 'institution': 'National Institute of Pharmaceutical Education and Research (NIPER)', 'location': {'postCode': 'Telangana-500037', 'settlement': 'Balanagar, Hyderabad', 'country': 'India'}}]'
+
+	As you can see, the fields of interest (institution and country) are loacated in the midle of the text. So I made a function that grabs the information after the word institution and contry. Then it counts how many times it occours. 
+
+	We apply this function to all partitions using map_partitions
+
+		results = json_df.map_partitions(process_partition, meta={'institutions': object, 'countries': object})
+
+	Then we count the occourens of each institution / country. (the null fields are dropped but they are a lot, my error or the dataset is a mess?)
+
+	- Bar plot the results for top/bottom 20. 
+	- Problem 1: China has like 3 different names. I need to unify them all under "China". Same for USA/UK
+	- Problem 2: Many have a combination of countries instead of one. This may be due to the dataset. But it needs some clever refinition. 
+
+
+
+
