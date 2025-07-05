@@ -63,3 +63,13 @@ once you done remember: `client.close()`
 You can find `ClusterManager` on `/home/ubuntu/ClusterManager.py`
 
 Added NLP model to `/home/ubuntu/data`.
+
+## 4/7 
+
+### Gigi 
+
+Yesterday and this morning i worked o task3. The goal is embedding every title with word-vectors from a model. I made a dataframe from the txt file that has 2.5million words and their vectors (6.1 GiB). The I extracted all the words that appear on our ensemble of paper titles, got the uniques and computed the Dataframe of word-vectors with just the words we need. This was the major challenge bc otherwise the model won't fit in the cluster memory. 
+
+Also I learned that all intermediate variables end in unmanaged memory of the cluster so a good practice is to `del` them asap and sometimes run client.run(gc.collect) to free memory.
+
+Now i have to map titles to model and viceversa.
