@@ -109,5 +109,8 @@ What I made so far:
 	- Problem 2: Many have a combination of countries instead of one. This may be due to the dataset. But it needs some clever refinition. 
 
 
+## 5/7
 
+### Gigi
 
+Done with task 3, update clusterManager so you can interactively select the desired number of workers. Did benchmarking for task 3, just time elapsed. To do:  do plots, understand why it takes so small time. 10 secs? with 1 worker? idk. When i did it by hand it took 4 minutes. Maybe persist is faster. To do: study .persist()
