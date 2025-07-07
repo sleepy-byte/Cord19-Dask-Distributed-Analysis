@@ -1,6 +1,6 @@
 # CORD-19 dataset distributed analysis w/ DASK
 
-## Useful things to know
+## Useful things to know (if nothing else works)
 
 ### What to do if cluster was not close 
 
